@@ -17,18 +17,37 @@
 
 package com.alibaba.citrus.service.pull.impl;
 
-import static com.alibaba.citrus.test.TestUtil.*;
-import static com.alibaba.citrus.util.BasicConstant.*;
-import static com.alibaba.citrus.util.CollectionUtil.*;
-import static java.util.Collections.*;
-import static org.easymock.EasyMock.*;
-import static org.junit.Assert.*;
+import static com.alibaba.citrus.test.TestUtil.exception;
+import static com.alibaba.citrus.test.TestUtil.getFieldValue;
+import static com.alibaba.citrus.util.BasicConstant.NULL_PLACEHOLDER;
+import static com.alibaba.citrus.util.CollectionUtil.createArrayList;
+import static com.alibaba.citrus.util.CollectionUtil.createHashMap;
+import static com.alibaba.citrus.util.CollectionUtil.createHashSet;
+import static com.alibaba.citrus.util.CollectionUtil.createTreeMap;
+import static java.util.Collections.singletonList;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
 
 import com.alibaba.citrus.service.pull.PullContext;
 import com.alibaba.citrus.service.pull.PullException;
@@ -39,9 +58,6 @@ import com.alibaba.citrus.service.pull.ToolNameAware;
 import com.alibaba.citrus.service.pull.ToolSetFactory;
 import com.alibaba.citrus.service.pull.impl.PullServiceImpl.ToolName;
 import com.alibaba.citrus.service.pull.impl.PullServiceImpl.ToolSetInfo;
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.context.ApplicationContext;
 
 public class PullServiceTests extends AbstractPullServiceTests {
     private PullContext context;
@@ -140,11 +156,11 @@ public class PullServiceTests extends AbstractPullServiceTests {
         // service
         assertNull(getFieldValue(service, "toolFactories", Map.class));
 
-        tools = sort(getFieldValue(service, "tools", Map.class));
-        toolsInSet = sort(getFieldValue(service, "toolsInSet", Map.class));
-        toolsRuntime = sort(getFieldValue(service, "toolsRuntime", Map.class));
-        prePulledTools = sort(getFieldValue(service, "prePulledTools", Map.class));
-        toolNames = createHashSet(getFieldValue(service, "toolNames", Set.class));
+        tools = sort((Map<String, ToolFactory>)getFieldValue(service, "tools", Map.class));
+        toolsInSet = sort((Map<String, ToolSetInfo<ToolSetFactory>>)getFieldValue(service, "toolsInSet", Map.class));
+        toolsRuntime = sort((Map<String, RuntimeToolSetFactory>)getFieldValue(service, "toolsRuntime", Map.class));
+        prePulledTools = sort((Map<String, Object>)getFieldValue(service, "prePulledTools", Map.class));
+        toolNames = createHashSet((Set<ToolName>)getFieldValue(service, "toolNames", Set.class));
 
         assertNotNull(tools);
         assertNotNull(toolsInSet);

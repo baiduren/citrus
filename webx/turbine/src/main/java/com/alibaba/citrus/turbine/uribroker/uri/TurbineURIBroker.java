@@ -77,11 +77,10 @@ public class TurbineURIBroker extends WebxURIBroker {
         }
     }
 
-    public TurbineURIBroker setTarget(String target) {
+    public void setTarget(String target) {
         setPathSegment(TARGET_INDEX, convertTarget(target));
         this.hasTarget = true;
         this.target = trimToNull(target);
-        return this;
     }
 
     private String convertTarget(String target) {

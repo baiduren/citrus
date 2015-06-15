@@ -183,7 +183,8 @@ public class NavigatorTests extends AbstractWebxTests {
     @Test
     public void redirect_getURI() {
         TurbineURIBroker uri = (TurbineURIBroker) rundata.redirectTo("link2").uri();
-        uri.setTarget("hello").addQueryData("aaa", 1);
+        uri.setTarget("hello");
+        uri.addQueryData("aaa", 1);
 
         assertEquals("http://www.taobao.com/hello?aaa=1", rundata.getRedirectLocation());
     }

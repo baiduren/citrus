@@ -80,10 +80,9 @@ public abstract class ServletURIBroker extends WebAppURIBroker {
     }
 
     /** 设置servlet path。 */
-    public ServletURIBroker setServletPath(String servletPath) {
+    public void setServletPath(String servletPath) {
         setPathSegment(SERVLET_PATH_INDEX, servletPath);
         hasServletPath = true;
-        return this;
     }
 
     /** 取得script名, 就是contextPath加servletName. */

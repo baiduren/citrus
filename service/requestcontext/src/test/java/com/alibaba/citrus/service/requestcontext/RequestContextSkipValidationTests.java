@@ -146,13 +146,13 @@ public class RequestContextSkipValidationTests {
         CookieStoreImpl cookieStore = (CookieStoreImpl) stores.getStore("s1");
 
         assertEquals("/", getFieldValue(cookieStore, "path", null));
-        assertEquals(0, getFieldValue(cookieStore, "maxAge", null));
+        assertEquals("0", getFieldValue(cookieStore, "maxAge", null));
         assertEquals(true, getFieldValue(cookieStore, "httpOnly", null));
         assertEquals(false, getFieldValue(cookieStore, "secure", null));
         assertEquals(false, getFieldValue(cookieStore, "survivesInInvalidating", null));
 
-        assertEquals(3896, getFieldValue(cookieStore, "maxLength", null));
-        assertEquals(5, getFieldValue(cookieStore, "maxCount", null));
+        assertEquals("3896", getFieldValue(cookieStore, "maxLength", null));
+        assertEquals("5", getFieldValue(cookieStore, "maxCount", null));
         assertEquals(false, getFieldValue(cookieStore, "checksum", null));
         assertEquals(false, getFieldValue(cookieStore, "survivesInInvalidating", null));
     }
@@ -167,7 +167,7 @@ public class RequestContextSkipValidationTests {
         SingleValuedCookieStoreImpl cookieStore = (SingleValuedCookieStoreImpl) stores.getStore("s2");
 
         assertEquals("/", getFieldValue(cookieStore, "path", null));
-        assertEquals(0, getFieldValue(cookieStore, "maxAge", null));
+        assertEquals("0", getFieldValue(cookieStore, "maxAge", null));
         assertEquals(true, getFieldValue(cookieStore, "httpOnly", null));
         assertEquals(false, getFieldValue(cookieStore, "secure", null));
         assertEquals(false, getFieldValue(cookieStore, "survivesInInvalidating", null));

@@ -255,7 +255,8 @@ public class TurbineRunDataImpl implements TurbineRunDataInternal {
 
     private void commitRedirectLocation() {
         if (redirectURI != null) {
-            String uri = redirectURI.setURIType(full).render();
+        	redirectURI.setURIType(full);
+            String uri = redirectURI.render();
             redirectURI = null; // reset
 
             setRedirectLocation(uri);

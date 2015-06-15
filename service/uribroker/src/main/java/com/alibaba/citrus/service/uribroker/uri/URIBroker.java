@@ -110,29 +110,32 @@ public abstract class URIBroker extends URIBrokerFeatures {
     }
 
     /** 设置URI类型。 */
-    public URIBroker setURIType(URIType type) {
+    public void setURIType(URIType type) {
         this.type = type;
-        return this;
     }
 
     /** 设置成自动URI类型。 */
     public URIBroker autoURI() {
-        return setURIType(URIType.auto);
+        setURIType(URIType.auto);
+        return this;
     }
 
     /** 设置成完整URI类型。 */
     public URIBroker fullURI() {
-        return setURIType(URIType.full);
+        setURIType(URIType.full);
+        return this;
     }
 
     /** 设置成绝对URI类型。 */
     public URIBroker absoluteURI() {
-        return setURIType(URIType.absolute);
+        setURIType(URIType.absolute);
+        return this;
     }
 
     /** 设置成相对URI类型。 */
     public URIBroker relativeURI() {
-        return setURIType(URIType.relative);
+        setURIType(URIType.relative);
+        return this;
     }
 
     /** 取得baseURI，当<code>URIType==absolute/relative</code>时，用来生成以此为基准的URI。 */

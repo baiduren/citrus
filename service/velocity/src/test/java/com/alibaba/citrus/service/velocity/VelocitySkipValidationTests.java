@@ -73,7 +73,7 @@ public class VelocitySkipValidationTests {
         assertEquals("/templates", getFieldValue(velocityEngine.getConfiguration(), "path", null));
         assertEquals("UTF-8", getFieldValue(velocityEngine.getConfiguration(), "charset", null));
         assertEquals(true, getFieldValue(velocityEngine.getConfiguration(), "cacheEnabled", null));
-        assertEquals(2, getFieldValue(velocityEngine.getConfiguration(), "modificationCheckInterval", null));
+        assertEquals("2", getFieldValue(velocityEngine.getConfiguration(), "modificationCheckInterval", null));
         assertEquals(true, getFieldValue(velocityEngine.getConfiguration(), "strictReference", null));
     }
 }

@@ -56,10 +56,9 @@ public abstract class WebxURIBroker extends ServletURIBroker {
         }
     }
 
-    public WebxURIBroker setComponentPath(String componentPath) {
+    public void setComponentPath(String componentPath) {
         setPathSegment(COMPONENT_PATH_INDEX, componentPath);
         this.hasComponentPath = true;
-        return this;
     }
 
     @Override
