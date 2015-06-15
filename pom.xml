@@ -11,7 +11,7 @@
     <artifactId>citrus-parent</artifactId>
     <packaging>pom</packaging>
     <name>Citrus Parent Project</name>
-    <version>3.2.4</version>
+    <version>3.2.5-SNAPSHOT</version>
     <description>Another Java-based WEB Framework</description>
     <url>http://www.openwebx.org/</url>
     <licenses>
